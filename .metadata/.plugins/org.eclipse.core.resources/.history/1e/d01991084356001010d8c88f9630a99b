@@ -1,0 +1,47 @@
+package com.sinse.boardapp.pool;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Vector;
+
+// 커넥션 풀 만들기
+public class PoolManager {
+
+	private String driver = "com.mysql.cj.jdbc.Driver";
+	private String url = "jdbc:mysql://localhost:3306/spring4";
+	private String user = "spring4";
+	private String pass = "1234";
+
+	// 생성자는 막았지만, 메서드를 통해서 인스턴스를 가져갈 수 있음.
+	private static PoolManager instance;
+
+	// Connection 들을 모아서 관리할 벡터(순서가 있는 List)
+	Vector<Connection> connectionPoo = new Vector<>();
+
+	private PoolManager() {
+
+	}
+
+	public static PoolManager getInstance() {
+		if (instance == null) {
+			instance = new PoolManager();
+		}
+
+		return instance;
+	}
+
+	// 커넥션 담아두기
+	public void createConnection() {
+		for(int i=0; i<20; i++) {
+		try {
+			Class.forName(driver);
+			Connection conn = DriverManager.getConnection(url, user, pass);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		}
+	}
+}

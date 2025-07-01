@@ -1,0 +1,5 @@
+package com.sinse.boardapp.mybatis;
+
+public class MybatisConfig {
+
+}

@@ -1,0 +1,10 @@
+package com.sinse.boardapp.mybatis;
+
+/***
+ * MyBatis의 설정 파일인 xml을 읽어들여, 필요한 객체를 만들기
+ */
+public class MybatisConfig {
+	String resource = "org/mybatis/example/mybatis-config.xml";
+	InputStream inputStream = Resources.getResourceAsStream(resource);
+	SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+}

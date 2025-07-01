@@ -1,0 +1,8 @@
+package com.sinse.boardapp.exception;
+
+public class NoticeException extends RuntimeException{
+	
+	public NoticeException() {
+		// TODO Auto-generated constructor stub
+	}
+}
