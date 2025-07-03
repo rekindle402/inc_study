@@ -1,8 +1,10 @@
 <%@ page contentType = "text/html; charset=UTF-8" %>
 <%
-	int totalRecord = 26;
+	int totalRecord = 2026;
 	int pageSize = 10;
 	int totalPage = (int)Math.ceil((float)totalRecord / pageSize);
+	int blockSize = 10; // 블럭 당 보여질 페이지 수
+	int currentPage = 1;
 %>
 <!DOCTYPE html>
 <html>
@@ -43,9 +45,11 @@ tr:nth-child(even) {
 		<%}%>
 		<tr>
 			<td colspan="3">
-				<%for(int i = 1; i<=totalPage; i++){%>
+				◀
+				<%for(int i = 1; i<=blockSize; i++){%>
 				[<%=i%>]
 				<%} %>
+				▶
 			</td>
 		</tr>
 	</table>
