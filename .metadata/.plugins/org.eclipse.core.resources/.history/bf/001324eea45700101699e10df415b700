@@ -1,0 +1,9 @@
+package com.sinse.boardapp.model;
+
+public class Comment {
+	private int comment_id;
+	private String msg;
+	private String user;
+	private String msgdate;
+	private int news_id;
+}

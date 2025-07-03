@@ -1,14 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="com.sinse.boardapp.model.Notice"%>
+<%@page import="com.sinse.boardapp.repository.NoticeDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%!NoticeDAO noticeDAO = new NoticeDAO();%>
 <%
-	//요청 객체로부터 파라미터 뽑아내기
-	//이 스크립틀릿 영역은 이 JSP가 서블릿으로 변경되어질때, servce() 메서드 영역이므로, 이미 service() 메서드
-	//의 매개변수와 응답 객체를 념겨받은상태
-	//service(HttpServletRequest requuest, HttpServletResponse response)
-	String notice_id = request.getParameter("notice_id");
+//요청 객체로부터 파라미터 뽑아내기
+//이 스크립틀릿 영역은 이 JSP가 서블릿으로 변경되어질때, servce() 메서드 영역이므로, 이미 service() 메서드
+//의 매개변수와 응답 객체를 념겨받은상태
+//service(HttpServletRequest requuest, HttpServletResponse response)
+String notice_id = request.getParameter("notice_id");
 
-	String sql = "SELECT * FROM notice WHERE notice_id =" + notice_id;
-	out.print(sql);
-	
+// String sql = "SELECT * FROM notice WHERE notice_id =" + notice_id;
+// out.print(sql);
+Notice notice = noticeDAO.select(Integer.parseInt(notice_id));
 %>
 <!DOCTYPE html>
 <html>
@@ -63,46 +67,67 @@ input[type=button]:hover {
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <!-- include summernote css/js -->
-<link
-	href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
 <script type="text/javascript">
 
 	//서머노트연동
 	$(()=>{
 		$("#content").summernote({
-			height:250
+			height:250,
+
 		});
 		
+		$("#content").summernote('code',"<%=notice.getContent()%>")
 	//버튼에 이벤트 연결
-	$("input[type='button']").click(()=>{
-		$("FORM").attr({
-			action : "/notice/regist",
-			// 머리에 데이터를 실어 나른게 됨
-			method : "POST"
+		
+		$("#bt_edit").click(() =>{
+			if(confirm("수정하시겠어요?")){
+				//서버로 입력폼의 내용을 모두 가져가야 하므로, Post 방식으로 보내야 함
+				$("form").attr({
+					method:"POST", 
+					action:"/notice/update"
+				});
+				$("form").submit();
+			}
 		});
-		$("form").submit();
-	});
-});
+		
+		$("#bt_del").click(() =>{
+			if(confirm("삭제하시겠어요?")){
+				//GET 방식 요청(링크)
+				location.href = "/notice/del?notice_id=<%=notice_id%>";
+			}
+		});
+		
+		$("#bt_list").click(() =>{
 
+		});
+		
+});
+	
 </script>
 </head>
 </body>
 <h3>Contact Form</h3>
 <div class="container">
 	<form>
-		 <label for="fname">Title</label> 
-		 <input type="text" id="fname" name="title" placeholder="제목 입력">
-		 
-		 <label for="lname">Writer</label>
-		<input type="text" id="lname" name="writer" placeholder="작성자 입력">
-
+	<!-- hidden은 html 컴포넌트의 역할을 수행하지만, 시각적으로 표현되지는 않음 
+	노출되지 않은상태로 데이터를 전송할때 사용
+	-->
+		<input type="hidden" id="fname" name="notice_id" value="<%=notice.getNotice_id()%>">
+				 
+		<label for="fname">Title</label> 
+		<input type="text" id="fname" name="title" value="<%=notice.getTitle()%>">
+		
+		<label for="lname">Writer</label> 
+		<input type="text" id="lname" name="writer" value="<%=notice.getWriter()%>"> 
+		
 		<label for="subject">Content</label>
-		<textarea id="content" name="content" placeholder="내용 입력" style="height: 200px"></textarea>
+		<textarea id="content" name="content" placehholder="내용 입력" style="height: 200px"></textarea>
 
-		<input type="button" value="Submit">
+		<input type="button" value="수정" id="bt_edit"> 
+		<input type="button" value="삭제" id="bt_del"> 	
+		<input type="button" value="목록" id="bt_list">
 	</form>
 </div>
 

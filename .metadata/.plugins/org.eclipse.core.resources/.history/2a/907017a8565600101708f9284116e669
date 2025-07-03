@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sinse.boardapp.mybatis.NoticeMapper">
-
-<!--  기존의 DAO의 업무였던 CRUD 작업의 쿼리 작성을 여기서 한다 -->
-
-</mapper>

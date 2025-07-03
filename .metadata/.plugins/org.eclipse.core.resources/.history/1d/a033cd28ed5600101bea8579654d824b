@@ -1,0 +1,9 @@
+package com.sinse.boardapp.controller;
+
+import javax.servlet.http.HttpServlet;
+
+// 삭제 요청을 처리하는 서블릿, 삭제요청은 별도의 디자인을 요구하는 요청이 아니므로 JSP가 아닌 서블릿으로 처리
+// 삭제 후, 목록으로 링크를 걸어주면 되므로..
+public class DeleteServlet extends HttpServlet{
+
+}

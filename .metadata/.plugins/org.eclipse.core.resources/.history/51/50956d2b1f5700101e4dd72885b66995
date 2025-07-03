@@ -1,0 +1,80 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%
+	int totalRecord = 26; // 총 레코드 수
+	int pageSize = 10;
+	int totalPage = (int)Math.ceil((float)totalRecord / pageSize);
+	int blockSize=10; // 블럭당 보여질 페이지 수
+	int currentPage = 1; // 현재 유저가 보고있는 페이지
+	if(request.getParameter("currentPage")!=null){ // 페이지 파라미터가 넘어올떄만
+    currentPage = Integer.parseInt(request.getParameter("currentPage"));
+	}
+	
+	int firstPage = 1+(currentPage/pageSize * 10); // 블럭당 시작 페이지
+	// int firstPage = currentPage - (currentPage-1)%blockSize;
+	int lastPage = 1-(firstPage + pageSize);// 블럭당 마지막 페이지
+	
+	
+	
+%>
+
+<%="totalRecord="+totalRecord+"<br>"%> 
+<%="pageSize="+pageSize+"<br>"%> 
+<%="totalPage="+totalPage+"<br>"%> 
+<%="blockSize="+blockSize+"<br>"%> 
+<%="currentPage="+currentPage+"<br>"%> 
+<%="firstPage="+firstPage+"<br>"%> 
+<%="lastPage="+lastPage+"<br>"%> 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Points</th>
+  </tr>
+  <% for(int i=0; i<pageSize; i++){ 
+  
+  %>
+  <tr>
+    <td>정</td>
+    <td>재환</td>
+    <td>50</td>
+  </tr>
+  <%}%>
+  <tr>
+  	<td colspan="3">
+  	<a href="#">◀</a>
+  <% for(int j=1; j<=blockSize; j++) {%>
+  <a href="/board/list.jsp?currentPage=<%=j%>">[<%=j%>]</a>
+  <%}%>
+  <a href="#">▶</a>
+  	</td>
+  </tr>
+</table>
+
+</body>
+</html>

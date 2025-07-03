@@ -5,8 +5,8 @@
 	pageEncoding="UTF-8"%>
 
 <%!// list.jsp가 톰캣에 의해 서블릿으로 작성될때 멤버 영역 (선언부)
-	NoticeDAO noticeDAO;%>
-
+	NoticeDAO noticeDAO;
+%>
 <%
 // 요청을 받는 service() 메서드 영역
 noticeDAO = new NoticeDAO();
@@ -64,10 +64,10 @@ tr:nth-child(even) {
 		Notice notice = list.get(i);
 		%>
 		<tr>
-			<td><%=notice.getNotice_id()%></td>
+			<td>jil</td>
 			<td><a href="/notice/content.jsp?notice_id=<%=notice.getNotice_id()%>"><%=notice.getTitle()%></a></td>
 			<td><%=notice.getWriter()%></td>
-			<td><%=notice.getRegdate()%></td>
+			<td><%=notice.getRegdate().substring(0, 10)%></td>
 			<td><%=notice.getHit()%></td>
 		</tr>
 		<%

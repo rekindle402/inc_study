@@ -35,7 +35,6 @@ public class RegistServlet extends HttpServlet{
 //		response.setCharacterEncoding("utf-8"); // 응답시 컨텐츠에 문자 인코딩 지정
 		PrintWriter out = response.getWriter();
 		
-		
 		String title = request.getParameter("title"); // HTML에 지정한 name
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
@@ -45,8 +44,8 @@ public class RegistServlet extends HttpServlet{
 		System.out.println(content);
 		
 		//파라미터들을 모델 객체의 넣어주자 
-		Notice notice = new Notice();
-		notice.setTitle(title);
+			Notice notice = new Notice();
+			notice.setTitle(title);
 		notice.setWriter(writer);
 		notice.setContent(content);
 		

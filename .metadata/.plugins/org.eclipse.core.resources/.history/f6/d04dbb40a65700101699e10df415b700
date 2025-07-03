@@ -1,0 +1,5 @@
+package com.sinse.boardapp.repository;
+
+public class CommentDAO {
+
+}

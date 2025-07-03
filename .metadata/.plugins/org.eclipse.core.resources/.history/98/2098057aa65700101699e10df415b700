@@ -1,0 +1,33 @@
+package com.sinse.boardapp.repository;
+
+import java.util.List;
+
+import com.sinse.boardapp.model.Comment;
+
+public class CommentDAO {
+	
+	// 전체 조회
+	public List selectAll() {
+		
+		return null;
+	}
+	
+	// 한건 조회
+	public Comment Select(int comment_id) {
+		
+		return null;
+	}
+
+	public void insert(Comment comment) {
+		
+	}
+	
+	public void update(Comment comment) {
+		
+	}
+	
+	public void delete() {
+		
+	}
+
+}

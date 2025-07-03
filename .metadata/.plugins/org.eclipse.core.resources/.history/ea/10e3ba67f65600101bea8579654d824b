@@ -1,0 +1,17 @@
+package com.sinse.boardapp.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+//클라이언트인 브라우저가 폼의 파라미터들을 Post로 요청하고 있음, 따라서 doXXX형 중 doPost로 처리하자
+public class UpdateServlet extends HttpServlet{
+	//파라미터 받기
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8);
+	}
+}

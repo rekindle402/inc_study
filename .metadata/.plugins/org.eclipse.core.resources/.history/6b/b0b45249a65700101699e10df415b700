@@ -1,0 +1,12 @@
+package com.sinse.boardapp.repository;
+
+public class CommentDAO {
+	public List selectAll() {
+		
+		return null;
+	}
+	
+	public Comment Select() {
+		
+	}
+}
