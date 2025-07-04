@@ -1,6 +1,0 @@
-package com.sinse.boardapp.repository;
-
-// DAD의 존재는 그대로 유지하되 dao의 CRUD 메서드 안에 상투적 JDBC 코드를 작성하지 말자
-public class NewsDAO {
-
-}

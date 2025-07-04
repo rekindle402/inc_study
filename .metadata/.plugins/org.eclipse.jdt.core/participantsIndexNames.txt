@@ -9,3 +9,5 @@ C:\lecture_workspace\javaee_workspace\.metadata\.plugins\org.eclipse.jst.jsp.cor
 \BoardApp\src\main\java
 C:\lecture_workspace\javaee_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3349735026.index
 \BoardApp\src\main\java
+C:\lecture_workspace\javaee_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2353376541.index
+\BoardApp\src\main\java

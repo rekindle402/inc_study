@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=BoardApp/C:\/apache-tomcat-8.5.93\/lib\/catalina.jar=/javadoc_location=/https:\/\/tomcat.apache.org\/tomcat-8.5-doc\/api\/=/=/owner.project.facets=/jst.web=/&lt;org.apache.catalina.ssi(SSIServletExternalResolver$ServletContextAndPath.class[ServletContextAndPath" modifiers="12" timestamp="1750208010649"/>
+    <typeInfo handle="=BoardApp/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.sinse.boardapp.repository{CommentDAO.java[CommentDAO" modifiers="1" timestamp="1751503297187"/>
+    <typeInfo handle="=BoardApp/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.sinse.boardapp.comment.controller{WriteServlet.java[WriteServlet" modifiers="1" timestamp="1751521314161"/>
 </typeInfoHistroy>

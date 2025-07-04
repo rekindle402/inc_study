@@ -4,10 +4,17 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="false"/>
 		<list key="findhistory">
+			<item value="Paging"/>
+			<item value="padgin"/>
+			<item value="Notice"/>
 			<item value="my"/>
 			<item value="selectAll"/>
 			<item value="select"/>
 			<item value="submit"/>
+		</list>
+		<list key="replacehistory">
+			<item value="paging"/>
+			<item value="Comment"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
