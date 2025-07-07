@@ -17,10 +17,9 @@ import com.sinse.hiberasync.repository.FoodTypeDAO;
 
 public class FoodTypeList extends HttpServlet {
 	FoodTypeDAO foodTypeDAO;
-	Logger logger;
+	Logger logger = LoggerFactory.getLogger(getClass());
 	public FoodTypeList() {
 		foodTypeDAO = new FoodTypeDAO();
-		logger = LoggerFactory.getLogger(getClass());
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,8 +41,9 @@ public class FoodTypeList extends HttpServlet {
 		// 이름하야 Gson
 		Gson gson = new Gson();
 		String result = gson.toJson(list); // java.util.List를 Josn 문자열로 변환 -> 문자열이기 때문에 전송 가능
-
-		logger.debug("문자열로 변환 후 데이터" + result);
+		
+		logger.debug("문자열로 변환 후 데이터 " + result);
+		out.print(result);
 
 	}
 

@@ -31,12 +31,10 @@ public class FoodTypeDAO extends Throwable{
 			// from 절에 대상이되는 객체는 테이블이 아니라 클래스다!
 			TypedQuery<FoodType> query = session.createQuery("from FoodType", FoodType.class);
 			list = query.getResultList();
-			tx.commit();
-			session.close();
+			tx.commit(); 
 		} catch (Exception e) {
 			e.printStackTrace();
-			if (tx != null)
-				tx.rollback();
+			if (tx != null) tx.rollback();
 			throw new FoodTypeException("데이터 조회 실패", e);
 		}
 		return list;

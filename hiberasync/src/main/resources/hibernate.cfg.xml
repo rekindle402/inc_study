@@ -8,5 +8,6 @@
     	<property name="hibernate.connection.password">1234</property>
     	
     	<mapping class = "com.sinse.hiberasync.model.FoodType"></mapping>
+    	<mapping class = "com.sinse.hiberasync.model.Store"></mapping>
     </session-factory>
 </hibernate-configuration>

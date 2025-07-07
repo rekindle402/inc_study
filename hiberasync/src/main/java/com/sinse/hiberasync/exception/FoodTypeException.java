@@ -5,11 +5,11 @@ public class FoodTypeException extends RuntimeException{
 		super(msg);
 	}
 	
-	public FoodTypeException(Exception e) {
+	public FoodTypeException(Throwable e) {
 		super(e);
 	}
 	
-	public FoodTypeException(String msg, Exception e) {
+	public FoodTypeException(String msg, Throwable e) {
 		super(msg, e);
 	}
 }

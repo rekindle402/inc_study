@@ -1,4 +1,4 @@
-package com.sinse.hiberasync.hibernate;
+ package com.sinse.hiberasync.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
