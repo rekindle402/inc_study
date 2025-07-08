@@ -181,17 +181,40 @@ tr:nth-child(even) {
 		xhttp.open("POST", "/store/edit");
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		
+		xhttp.onload = function() {
+			if(this.status == 204){
+				//새롭게 갱신될 목록을 요청
+				getStoreList();
+			} else {
+				let json = JSON.parse(this.reponseText);
+				alert();
+			} 
+		}
 		
-		let param = "store_id="+$("aside_detial input[name='store_id']").val();
+		let param = "store_id="+$("#aside_detail input[name='store_id']").val();
 		param+= "&store_name="+$("#aside_detail input[name='store_name']").val();
 		param+="&tel="+$("#aside_detail input[name='tel']").val();
 		param+="&food_type_id="+$("#aside_detail select").val();
+		
+		console.log(param);
 		
 		xhttp.send(param);
 	}
 	
 	function del() {
+		let xhttp = new XMLHttpRequest();
+		xhttp.open("POST", "/store/del");
+		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		
+		xhttp.onload=function(){
+		if(this.status==204){
+			getStoreList();
+		} else{
+			let json = JSON.parse(this.responseText);
+			alert("등록성공");
+		}
+	}
+		xhttp.send("store_id="+$("#aside_detail input[name='store_id']").val());
 	}
 	
 	
@@ -206,10 +229,15 @@ tr:nth-child(even) {
 		});
 		
 		$("#btn_del").click(()=>{
-			edit();
+			if(confirm("삭제 하시겠어요?")){
+				del();
+			}
 		});
 		
 		$("#btn_edit").click(()=>{
+			if(confirm("수정 하시겠어요?")){
+				edit();
+			}
 		});
 	});
 </script>
@@ -236,12 +264,11 @@ tr:nth-child(even) {
 			<div id="list"></div>
 		</div>
 		<div id="aside_detail">
-			<select></select> 
-			<input type = "hidden" name ="store_id">
-			<input type="text" name="store_name"placeholder="맛집 상호명">
-			 <input type="text" name="tel" placeholder="연락처">
-			<button id="bt_edit">수정</button>
-			<button id="bt_del">삭제</button>
+			<select></select> <input type="hidden" name="store_id"> <input
+				type="text" name="store_name" placeholder="맛집 상호명"> <input
+				type="text" name="tel" placeholder="연락처">
+			<button id="btn_edit">수정</button>
+			<button id="btn_del">삭제</button>
 
 		</div>
 

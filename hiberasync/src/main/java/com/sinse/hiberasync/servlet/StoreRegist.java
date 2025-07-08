@@ -28,10 +28,6 @@ public class StoreRegist extends HttpServlet {
 		String store_name = request.getParameter("store_name");
 		String tel = request.getParameter("tel");
 		
-		logger.debug("food_type_id=" + food_type_id);
-		logger.debug("store="+store_name);
-		logger.debug("tel="+tel);
-		
 		FoodType foodType = new FoodType();
 		foodType.setFood_type_id(Integer.parseInt(food_type_id));
 		
